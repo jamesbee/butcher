@@ -3,7 +3,7 @@
 all: clean mac linux
 
 mac: main.go
-	gox -tags="prod" -ldflags "-s -w" -osarch="darwin/amd64" -output="./bin/butcher"
+	gox -tags="prod" -ldflags "-s -w" -osarch="darwin/amd64" -output="./bin/butcher-{{.OS}}-{{.Arch}}"
 
 linux: main.go
 	gox -tags="prod" -ldflags "-s -w" -osarch="linux/amd64" -output="./bin/butcher-{{.OS}}-{{.Arch}}"
