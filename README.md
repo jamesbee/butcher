@@ -1,36 +1,59 @@
 # Butcher
 
-#### Description
+## Description
+
 Helpfull hooks provided by Pudge, sets of dubbo utils.
 
-#### Software Architecture
-Software architecture description
+Butcher is a simple wrapper around dubbo-telnet with go, aimed to made debuging
+dubbo more esayly.
 
-#### Installation
+## Usage
 
-1. xxxx
-2. xxxx
-3. xxxx
+```shell
+##
+# list dubbo container services and methods
+$ buthcer -H 10.0.11.1 -P 20880 ls
 
-#### Instructions
+PROVIDER:
+com.example.Provier
 
-1. xxxx
-2. xxxx
-3. xxxx
+CONSUMER:
+com.example.Consumer
 
-#### Contribution
+##
+# Invoke the service method on dubbo container
+$ buthcer -H 10.0.11.1 -P 20880 invoke 'com.example.Provier.hello("world")'
+
+Use default com.example.Provier.
+result: {"response": "world"}
+elapsed: 1 ms.
+
+##
+# Batch invoke methods from a given file.
+# invoke-list.txt:
+#   com.example.Provier.hello("world a")
+#   com.example.Provier.hello("world b")
+$ buthcer -H 10.0.11.1 -P 20880 invoke --file invoke-list.txt
+
+Use default com.example.Provier.
+result: {"response": "world a"}
+elapsed: 1 ms.
+
+Use default com.example.Provier.
+result: {"response": "world b"}
+elapsed: 1 ms.
+```
+
+### Installation
+
+1. From source code.
+   1. Install gox by `go get github.com/mitchellh/gox`
+   2. Build by `make all`
+2. Download from pre-build releases.
+
+### Contribution
 
 1. Fork the repository
 2. Create Feat_xxx branch
 3. Commit your code
 4. Create Pull Request
-
-
-#### Gitee Feature
-
-1. You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2. Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3. Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4. The most valuable open source project [GVP](https://gitee.com/gvp)
-5. The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6. The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
