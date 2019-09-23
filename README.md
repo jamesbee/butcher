@@ -53,6 +53,10 @@ elapsed: 1 ms.
    2. Build by `make all`
 2. Download from pre-build releases.
 
+### Known Issues
+
+Butcher building around Dubbo telnet protocol, synced sending commands and async reading response, there's no guarantee of invocation order and may cause issues when invoke frequency is too high. Also, you need to specify "--sleep" flag for "invoke" command if RPC will cost a lot of time, the default sleep time between each invocation is 500 milliseconds.
+
 ### Contribution
 
 1. Fork the repository
