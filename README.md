@@ -4,7 +4,7 @@
 
 ## Description
 
-Helpfull hooks provided by Pudge, sets of dubbo utils.
+A set of Dubbo utils provided by Pudge meant to be helpful.
 
 Butcher is a simple wrapper around dubbo-telnet with go, aimed to made debuging
 dubbo more esayly.
