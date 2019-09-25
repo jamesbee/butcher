@@ -9,13 +9,18 @@ import (
 	"time"
 )
 
+const (
+	InvokeSleep = "invokeSleep"
+	InvokeFile  = "invokeFile"
+)
+
 var invokeCmd = &cobra.Command{
 	Use:     "invoke",
 	Short:   "Invoke given command on dubbo instance.",
 	PreRun:  PreRun,
 	PostRun: PostRun,
 	Run: func(cmd *cobra.Command, args []string) {
-		fileName := viper.GetString("invokeFile")
+		fileName := viper.GetString(InvokeFile)
 		if fileName == "" {
 			// 单次执行
 			if len(args) == 0 {
@@ -29,7 +34,7 @@ var invokeCmd = &cobra.Command{
 			}
 			defer file.Close()
 
-			sleep := viper.GetInt("invokeSleep")
+			sleep := viper.GetInt(InvokeSleep)
 			scanner := bufio.NewScanner(file)
 			for scanner.Scan() {
 				Client.Cmd(fill(scanner.Text()))

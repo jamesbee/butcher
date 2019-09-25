@@ -28,12 +28,12 @@ func init() {
 
 	_ = viper.BindPFlag("host", rootCmd.PersistentFlags().Lookup("host"))
 	_ = viper.BindPFlag("port", rootCmd.PersistentFlags().Lookup("port"))
-	_ = viper.BindPFlag("invokeFile", invokeCmd.PersistentFlags().Lookup("file"))
-	_ = viper.BindPFlag("invokeSleep", invokeCmd.PersistentFlags().Lookup("sleep"))
+	_ = viper.BindPFlag(InvokeFile, invokeCmd.PersistentFlags().Lookup("file"))
+	_ = viper.BindPFlag(InvokeSleep, invokeCmd.PersistentFlags().Lookup("sleep"))
 
 	viper.SetDefault("host", "0.0.0.0")
 	viper.SetDefault("port", 20880)
-	viper.SetDefault("invokeSleep", 500)
+	viper.SetDefault(InvokeSleep, 500)
 }
 
 func PreRun(cmd *cobra.Command, args []string) {
