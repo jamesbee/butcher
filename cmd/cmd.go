@@ -14,7 +14,9 @@ var (
 
 	rootCmd = &cobra.Command{
 		Use:   "Butcher",
-		Short: "Butcher is a dubbo batch invoker util.",
+		Short: "A set of Dubbo utils provided by Pudge meant to be helpful.",
+		PersistentPreRun: PreRun,
+		PersistentPostRun: PostRun,
 	}
 )
 

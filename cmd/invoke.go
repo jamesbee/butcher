@@ -17,8 +17,6 @@ const (
 var invokeCmd = &cobra.Command{
 	Use:     "invoke",
 	Short:   "Invoke given command on dubbo instance.",
-	PreRun:  PreRun,
-	PostRun: PostRun,
 	Run: func(cmd *cobra.Command, args []string) {
 		fileName := viper.GetString(InvokeFile)
 		if fileName == "" {
