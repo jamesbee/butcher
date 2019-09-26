@@ -13,6 +13,27 @@ dubbo more esayly.
 
 ```shell
 ##
+# get help and show avaliable commands
+$ buthcer -h
+
+A set of Dubbo utils provided by Pudge meant to be helpful.
+
+Usage:
+  Butcher [command]
+
+Available Commands:
+  help        Help about any command
+  invoke      Invoke given command on dubbo instance.
+  ls          Show all provider and consumers
+
+Flags:
+  -h, --help          help for Butcher
+  -H, --host string   Dubbo connection host (default "0.0.0.0")
+  -P, --port int      Dubbo connection port (default 20880)
+
+Use "Butcher [command] --help" for more information about a command.
+
+##
 # list dubbo container services and methods
 $ buthcer -H 10.0.11.1 -P 20880 ls
 
